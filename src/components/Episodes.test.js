@@ -88,7 +88,7 @@ test("Episodes component renders correctly when mounting", () => {
 
 test("Displays episodes as the episodes prop is updated", () => {
   const { rerender } = render(<Episodes episodes={[]} />);
-  screen.debug();
+  //   screen.debug();
 
   expect(screen.queryByText(/Chapter One/i)).toBeNull();
 
@@ -99,7 +99,9 @@ test("Displays episodes as the episodes prop is updated", () => {
   expect(
     screen.getByText(/Chapter One: The Vanishing of Will Byers/i)
   ).toBeInTheDocument();
-  expect(screen.getByText(/Chapter Three: Holly, Jolly/i)).toBeInTheDocument();
+  expect(
+    screen.getByText(/Chapter Two: The Weirdo on Maple Street/i)
+  ).toBeInTheDocument();
 
   //Check to see if all 3 data elements are displaying:
   expect(screen.queryAllByTestId("episodes")).toHaveLength(3);
